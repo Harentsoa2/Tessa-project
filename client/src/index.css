@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ... */
+html,
+body {
+  height: 100%;
+  font-family: Inter, "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+em-emoji-picker {
+  width: 350px;
+  height: 400px;
+  resize: horizontal;
+  overflow: auto;
+}
+
+/* Custom scrollbar styles */
+.scrollbar {
+  overflow-y: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(176, 174, 174, 0.7) #ddd; /* Firefox */
+  transition: scrollbar-color 0.3s ease, scrollbar-width 0.3s ease;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #ddd; /* Track color */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: gray; /* Thumb color */
+  border-radius: 100%; /* Rounded edges */
+  transition: background-color 0.3s ease; /* Smooth color change */
+}
+
+.scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: darkgray; /* Hover effect */
+}
+
+@layer base {
+  :root {
+    --background: 35 45% 96%;
+
+    --foreground: 24 31% 10%;
+
+    --card: 32 55% 98%;
+
+    --card-foreground: 24 31% 10%;
+
+    --popover: 32 55% 98%;
+
+    --popover-foreground: 24 31% 10%;
+
+    --primary: 24 53% 28%;
+
+    --primary-foreground: 36 56% 94%;
+
+    --secondary: 172 33% 42%;
+
+    --secondary-foreground: 35 45% 96%;
+
+    --muted: 33 36% 88%;
+
+    --muted-foreground: 25 14% 39%;
+
+    --accent: 42 60% 68%;
+
+    --accent-foreground: 24 31% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 29 24% 78%;
+
+    --input: 29 24% 78%;
+
+    --ring: 172 33% 42%;
+
+    --chart-1: 24 53% 28%;
+
+    --chart-2: 172 33% 42%;
+
+    --chart-3: 209 33% 36%;
+
+    --chart-4: 42 60% 68%;
+
+    --chart-5: 8 63% 57%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 33 48% 94%;
+
+    --sidebar-foreground: 24 31% 10%;
+
+    --sidebar-primary: 24 53% 28%;
+
+    --sidebar-primary-foreground: 36 56% 94%;
+
+    --sidebar-accent: 31 47% 88%;
+
+    --sidebar-accent-foreground: 24 31% 10%;
+
+    --sidebar-border: 29 24% 78%;
+
+    --sidebar-ring: 172 33% 42%;
+  }
+  .dark {
+    --background: 24 31% 10%;
+
+    --foreground: 36 56% 94%;
+
+    --card: 24 31% 12%;
+
+    --card-foreground: 36 56% 94%;
+
+    --popover: 24 31% 12%;
+
+    --popover-foreground: 36 56% 94%;
+
+    --primary: 36 56% 86%;
+
+    --primary-foreground: 24 31% 10%;
+
+    --secondary: 172 33% 42%;
+
+    --secondary-foreground: 36 56% 94%;
+
+    --muted: 24 22% 18%;
+
+    --muted-foreground: 34 18% 72%;
+
+    --accent: 42 60% 68%;
+
+    --accent-foreground: 24 31% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 24 18% 24%;
+
+    --input: 24 18% 24%;
+
+    --ring: 172 33% 42%;
+
+    --chart-1: 220 70% 50%;
+
+    --chart-2: 160 60% 45%;
+
+    --chart-3: 30 80% 55%;
+
+    --chart-4: 280 65% 60%;
+
+    --chart-5: 340 75% 55%;
+
+    --sidebar-background: 24 31% 10%;
+
+    --sidebar-foreground: 36 56% 94%;
+
+    --sidebar-primary: 36 56% 86%;
+
+    --sidebar-primary-foreground: 24 31% 10%;
+
+    --sidebar-accent: 24 22% 18%;
+
+    --sidebar-accent-foreground: 36 56% 94%;
+
+    --sidebar-border: 24 18% 24%;
+
+    --sidebar-ring: 172 33% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  button[data-placeholder] {
+    @apply text-muted-foreground;
+  }
+}

@@ -1,0 +1,10 @@
+package com.hei.school.tessaproject.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public record ProjectRequest(
+        String emoji,
+        @NotBlank @Size(max = 255) String name,
+        String description) {
+}

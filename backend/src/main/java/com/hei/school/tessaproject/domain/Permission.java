@@ -1,0 +1,18 @@
+package com.hei.school.tessaproject.domain;
+
+public enum Permission {
+    CREATE_WORKSPACE,
+    DELETE_WORKSPACE,
+    EDIT_WORKSPACE,
+    MANAGE_WORKSPACE_SETTINGS,
+    ADD_MEMBER,
+    CHANGE_MEMBER_ROLE,
+    REMOVE_MEMBER,
+    CREATE_PROJECT,
+    EDIT_PROJECT,
+    DELETE_PROJECT,
+    CREATE_TASK,
+    EDIT_TASK,
+    DELETE_TASK,
+    VIEW_ONLY
+}

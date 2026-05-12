@@ -1,0 +1,36 @@
+server:
+  port: ${PORT:8000}
+  servlet:
+    session:
+      cookie:
+        name: session
+        http-only: true
+        same-site: lax
+        secure: ${SESSION_COOKIE_SECURE:false}
+      timeout: ${SESSION_TIMEOUT:24h}
+
+spring:
+  application:
+    name: tessa-project
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:file:./data/tessa-db}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+  h2:
+    console:
+      enabled: ${H2_CONSOLE_ENABLED:true}
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    default-property-inclusion: non_null
+
+tessa:
+  frontend-origin: ${FRONTEND_ORIGIN:http://localhost:3000,http://localhost:5173}
+  frontend-google-callback-url: ${FRONTEND_GOOGLE_CALLBACK_URL:http://localhost:3000/google/callback}

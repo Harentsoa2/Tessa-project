@@ -1,0 +1,7 @@
+.gradle/
+build/
+data/
+*.log
+*.h2.db
+*.trace.db
+.env
