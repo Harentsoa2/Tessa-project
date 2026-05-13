@@ -5,7 +5,7 @@ server:
       cookie:
         name: session
         http-only: true
-        same-site: lax
+        same-site: ${SESSION_COOKIE_SAME_SITE:lax}
         secure: ${SESSION_COOKIE_SECURE:false}
       timeout: ${SESSION_TIMEOUT:24h}
 
