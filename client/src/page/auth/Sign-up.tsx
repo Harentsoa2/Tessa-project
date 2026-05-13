@@ -57,9 +57,9 @@ const SignUp = () => {
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     if (isPending) return;
     mutate(values, {
-      onSuccess: () => {
-        const query = returnUrl ? `?returnUrl=${encodeURIComponent(returnUrl)}` : "";
-        navigate(`/sign-in${query}`);
+      onSuccess: (data) => {
+        const decodedUrl = returnUrl ? decodeURIComponent(returnUrl) : null;
+        navigate(decodedUrl || `/workspace/${data.user.currentWorkspace}`);
       },
       onError: (error) => {
         console.log(error);

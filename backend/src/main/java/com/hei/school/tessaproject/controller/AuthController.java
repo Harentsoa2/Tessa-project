@@ -31,9 +31,12 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Map<String, Object>> register(@Valid @RequestBody RegisterRequest request) {
-        authService.register(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "User created successfully"));
+    public ResponseEntity<Map<String, Object>> register(
+            @Valid @RequestBody RegisterRequest request,
+            HttpServletRequest servletRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of(
+                "message", "User created successfully",
+                "user", authService.register(request, servletRequest)));
     }
 
     @PostMapping("/login")

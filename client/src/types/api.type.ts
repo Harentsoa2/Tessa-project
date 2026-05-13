@@ -13,6 +13,8 @@ export type LoginResponseType = {
   };
 };
 
+export type RegisterResponseType = LoginResponseType;
+
 export type registerType = {
   name: string;
   email: string;

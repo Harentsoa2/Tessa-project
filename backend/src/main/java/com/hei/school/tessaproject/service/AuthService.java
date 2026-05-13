@@ -56,7 +56,7 @@ public class AuthService {
     }
 
     @Transactional
-    public void register(RegisterRequest request) {
+    public Map<String, Object> register(RegisterRequest request, HttpServletRequest servletRequest) {
         String email = normalizeEmail(request.email());
         if (userRepository.existsByEmailIgnoreCase(email)) {
             throw new BadRequestException("Email already exists", ErrorCode.AUTH_EMAIL_ALREADY_EXISTS);
@@ -92,6 +92,11 @@ public class AuthService {
 
         user.setCurrentWorkspace(workspace);
         userRepository.save(user);
+
+        HttpSession session = servletRequest.getSession(true);
+        session.setAttribute(SessionKeys.CURRENT_USER_ID, user.getId());
+
+        return mapper.userForLogin(user);
     }
 
     @Transactional
